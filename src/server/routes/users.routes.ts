@@ -9,6 +9,8 @@ import { listProducts } from '../controllers/Product/ListProduct';
 import { login } from '../controllers/login/login';
 import { listProductId } from '../controllers/Product';
 import { reqParamSchema } from '../validators/validationReqParams';
+import { upload } from '../middlewares/upload';
+import { updateUserPhoto } from '../controllers/Users/updatePhoto';
 // import { IsAdmin } from '../middlewares/SigninVerification';
 
 
@@ -28,6 +30,10 @@ router.post(
 router.post('/signin',
   validation('body', signinBodySchema),
   login,
+);
+
+router.post('/uploadImage/:_id',
+  upload.single("file"),updateUserPhoto,
 );
 
 

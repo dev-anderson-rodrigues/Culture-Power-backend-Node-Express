@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/return-await */
 import { UserModel } from '../schemas/user.schema';
 import { IUserDTO, IUser,} from '../entities/users';
-import { IProduct } from '../entities/product';
 
 export class UserRepository{
   
@@ -52,5 +52,11 @@ export class UserRepository{
     return await userId?.save()
       // user,
       // { $inc: { products: product } });
+  };
+  async userUpdatedPhoto(userId: string,  file: string) {  
+    const user = await UserModel.findByIdAndUpdate(userId, { photo: file }).exec();
+    
+    return user
+ 
   };
 }
