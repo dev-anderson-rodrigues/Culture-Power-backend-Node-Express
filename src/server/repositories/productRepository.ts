@@ -19,4 +19,10 @@ export class ProductRepository {
   async findById (_id: string) {
     return await ProductModel.findById(_id)
   }
+
+  async findByIdAndUpdate (_id: string, productUpdate: IProductDTO) {
+    const Product = await ProductModel.findByIdAndUpdate(_id, { name: productUpdate.name, value: productUpdate.value, amount: productUpdate.amount, description: productUpdate.description, photo: productUpdate.photo }).exec()
+
+    return await Product!.save()
+  }
 }

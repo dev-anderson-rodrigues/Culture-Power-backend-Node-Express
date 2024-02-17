@@ -15,7 +15,7 @@ router.get('/:_id', auth,
   validation('params', reqParamSchema),
   listProductId
 )
-router.post('/RedeemProduct/:_id',
+router.post('/RedeemProduct/:_id', auth,
   validation('params', reqParamSchema),
   RedeemProductId
 )

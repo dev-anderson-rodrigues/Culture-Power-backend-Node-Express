@@ -8,21 +8,30 @@ import { validationBodyJewels } from '../validators/validationBodyJewels'
 import { isAdmin } from '../middlewares/Permission'
 import { addJewels } from '../controllers/Admin/AddJewels/AddJewels'
 import { reqParamSchema } from '../validators/validationReqParams'
+import { auth } from '../middlewares/auth'
+import { searchLoggedinUser } from '../controllers/Users/searchLogged-inUser'
+import { UpdatedProduct } from '../controllers/Product/updateProducts'
 
 const router = Router()
+
+router.get('/', auth, isAdmin, searchLoggedinUser)
 
 router.post('/signin',
   validation('body', signinBodySchema),
   login
 )
-router.patch('/postJewels/:_id', isAdmin,
+router.patch('/postJewels/:_id', auth, isAdmin,
   validation('params', reqParamSchema),
   validation('body', validationBodyJewels),
   addJewels
 )
-router.post('/createProduct', isAdmin,
+router.post('/createProduct', auth, isAdmin,
   validation('body', createProductBodySchema),
   createProduct
+)
+router.put('/updateProduct/:_id', auth, isAdmin,
+  validation('params', reqParamSchema),
+  UpdatedProduct
 )
 
 export default router

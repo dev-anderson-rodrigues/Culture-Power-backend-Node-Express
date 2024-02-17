@@ -9,16 +9,14 @@ import { login } from '../controllers/login/login'
 import { upload } from '../middlewares/upload'
 import { updateUserPhoto } from '../controllers/Users/updatePhoto'
 import { reqParamSchema } from '../validators/validationReqParams'
+import { searchLoggedinUser } from '../controllers/Users/searchLogged-inUser'
 
 const router = Router()
 
-router.get('/', async (request, response) => {
-  const users = await UserModel.find()
-  return response.json({ users })
-})
+router.get('/', auth, searchLoggedinUser)
 
 router.post(
-  '/', auth,
+  '/',
   validation('body', createUserBodySchema),
   createUser
 )

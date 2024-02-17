@@ -1,4 +1,5 @@
 import { ProductRepository } from '../repositories/productRepository'
+import { type IProductDTO, type IProduct } from '../entities/product'
 
 export class ProductService {
   productRepository: ProductRepository
@@ -12,6 +13,14 @@ export class ProductService {
 
   async ListProductId (_id: string) {
     return await this.productRepository.findById(_id)
+  }
+
+  async updateProduct (_id: string,
+    productUpdate: IProductDTO
+  ) {
+    return await this.productRepository.findByIdAndUpdate(_id,
+      productUpdate
+    )
   }
 
   async productCreate (

@@ -19,5 +19,5 @@ export async function updateUserPhoto (req: Request, res: Response) {
   const photoToUpdate = await userService.userByIdAndUpdate(userId._id, file?.filename)
   if (!photoToUpdate) return res.status(StatusCodes.NOT_FOUND).json({ message: 'Error: User not found.' })
 
-  res.status(200).send(photoToUpdate)
+  res.status(StatusCodes.OK).json(photoToUpdate)
 }
