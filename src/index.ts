@@ -11,6 +11,6 @@ const server = express()
 
 server.use(express.json())
 server.use(routes)
-server.use(express.static(path.join(__dirname, '..', '..', 'uploads')))
+server.use(express.static(path.join(__dirname, '..', '..', 'server/uploads')))
 
 server.listen(process.env.PORT, () => console.log('Server is running'))

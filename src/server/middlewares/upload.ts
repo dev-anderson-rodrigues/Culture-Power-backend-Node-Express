@@ -3,7 +3,7 @@ import path from 'path'
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.resolve(__dirname, '..', '..', 'uploads'))
+    cb(null, path.resolve(__dirname, '..', '..', 'server/uploads'))
   },
   filename: function (req, file, cb) {
     const fileExtensionParts = file.originalname.split('.')
