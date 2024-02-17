@@ -2,9 +2,9 @@ export interface IAdmin {
   _id?: string
   name: string
   email: {
-    type: string,
-    required: true,
-    unique: true,
+    type: string
+    required: true
+    unique: true
   }
   password: string
   createdAt: Date

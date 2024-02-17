@@ -1,6 +1,5 @@
-import { Schema, model } from 'mongoose';
-import { IProduct } from '../entities/product';
-import { string } from 'yup';
+import { Schema, model } from 'mongoose'
+import { type IProduct } from '../entities/product'
 
 const ProductSchema = new Schema<IProduct>({
   name: String,
@@ -8,6 +7,6 @@ const ProductSchema = new Schema<IProduct>({
   amount: Number,
   description: String,
   photo: String
-}, { timestamps: true });
+}, { timestamps: true })
 
-export const ProductModel = model('product', ProductSchema);
+export const ProductModel = model<IProduct>('Product', ProductSchema)

@@ -1,18 +1,20 @@
-import { ProductRepository } from '../repositories/productRepository';
+import { ProductRepository } from '../repositories/productRepository'
 
 export class ProductService {
-  productRepository: ProductRepository;
-  constructor() {
-    this.productRepository = new ProductRepository();
+  productRepository: ProductRepository
+  constructor () {
+    this.productRepository = new ProductRepository()
   }
 
-  async ListProducts() {
+  async ListProducts () {
     return await this.productRepository.findByProducts()
   }
-  async ListProductId(_id: string){
+
+  async ListProductId (_id: string) {
     return await this.productRepository.findById(_id)
   }
-  async productCreate(
+
+  async productCreate (
     name: string,
     value: number,
     amount: number,
@@ -25,8 +27,8 @@ export class ProductService {
       amount,
       description,
       photo
-    );
+    )
 
-    return CreateProduct;
+    return CreateProduct
   }
 }

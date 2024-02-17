@@ -1,29 +1,24 @@
 {
   "env": {
-    "es2021": true,
-    "node": true
+    "browser": true,
+    "es2021": true
   },
-  "extends": [
-    "standard-with-typescript",
-    "prettier"
-  ],
+  "extends": "standard-with-typescript",
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "rules": {
-    "@typescript-eslint/strict-boolean-expressions": "off",
-    "@typescript-eslint/prefer-nullish-coalescing": "off",
-    "@typescript-eslint/no-misused-promises": "off",
-    "@typescript-eslint/no-namespace": "off",
-    "@typescript-eslint/consistent-type-imports": "off",
+    "eslint-disable import/no-duplicates": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/lines-between-class-members": "off",
-    "@typescript-eslint/no-unnecessary-type-assertion": "off",
+    "@typescript-eslint/no-unsafe-argument": "off",
     "@typescript-eslint/ban-types": "off",
-    "@typescript-eslint/no-unused-expressions": "off",
-    "@typescript-eslint/no-confusing-void-expression": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
     "@typescript-eslint/no-unused-vars": "off",
-    "n/handle-callback-err": "off"
+    "@typescript-eslint/no-confusing-void-expression": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/no-unused-expressions": "off"
   }
 }

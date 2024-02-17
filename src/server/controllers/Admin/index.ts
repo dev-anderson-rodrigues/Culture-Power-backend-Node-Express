@@ -1,1 +1,1 @@
-export * from './AddJewels/AddJewels';
+export * from './AddJewels/AddJewels'

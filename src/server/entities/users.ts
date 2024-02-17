@@ -1,16 +1,15 @@
 // import { Document } from 'mongoose';
-import { IProduct } from './product';
-import { Document, Schema } from 'mongoose';
+import { type Document } from 'mongoose'
 
 export interface IUser extends Document {
   _id?: string
   name: string
   email: string
   password: string
-  jewelsAmount: number,
+  jewelsAmount: number
   photo: string
-  products?: any[],
-  favoriteProducts?: any[],
+  products?: any[]
+  favoriteProducts?: any[]
 }
 
 export interface IUserDTO {
@@ -19,4 +18,3 @@ export interface IUserDTO {
   password: string
   photo: string
 }
-

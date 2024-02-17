@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
     const fileExtensionParts = file.originalname.split('.')
     const fileExtension = fileExtensionParts[fileExtensionParts.length - 1]
     cb(null, file.fieldname + '-' + Date.now() + '.' + fileExtension)
-  },
+  }
 })
 
 export const upload = multer({ storage })

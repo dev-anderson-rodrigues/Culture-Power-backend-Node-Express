@@ -1,28 +1,28 @@
-import { StatusCodes } from 'http-status-codes';
+import { StatusCodes } from 'http-status-codes'
 
-import { IUserDTO } from '../../entities/users';
-import { Request, Response } from 'express';
+import { type IUserDTO } from '../../entities/users'
+import { type Request, type Response } from 'express'
 
-import { UserService } from '../../services/userService';
-import { UserRepository } from '../../repositories/user-repository';
+import { UserService } from '../../services/userService'
+import { UserRepository } from '../../repositories/user-repository'
 
-const userService = new UserService();
-const userRepository = new UserRepository();
+const userService = new UserService()
+const userRepository = new UserRepository()
 
-export async function  createUser (req: Request<{}, {}, IUserDTO>, res: Response){
-  const {body} = req;
-  const userAlreadyExists = await userRepository.findByNameOrEmail(body.name, body.email);
+export async function createUser (req: Request<{}, {}, IUserDTO>, res: Response) {
+  const { body } = req
+  const userAlreadyExists = await userRepository.findByNameOrEmail(body.name, body.email)
   if (userAlreadyExists) {
-    console.log('User already exists');
-    return res.status(StatusCodes.UNAUTHORIZED).json('User already exists!');
+    console.log('User already exists')
+    return res.status(StatusCodes.UNAUTHORIZED).json('User already exists!')
   }
   const result = await userService.userCreate(
     body.name,
     body.email,
     body.password,
     body.photo
-  );
-    
-  console.log(result);
-  return res.status(StatusCodes.CREATED).json(result);
+  )
+
+  console.log(result)
+  return res.status(StatusCodes.CREATED).json(result)
 }

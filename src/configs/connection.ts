@@ -1,9 +1,7 @@
-/* eslint-disable import/no-duplicates */
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
-mongoose.connect(process.env.DATABASE_URL as string,).then(() =>{
-  console.log('Database is running');
+mongoose.connect(process.env.DATABASE_URL!).then(() => {
+  console.log('Database is running')
+}).catch((err) => { console.log(err) })
 
-}).catch((err) => console.log(err));
-
-export { mongoose };
+export { mongoose }
