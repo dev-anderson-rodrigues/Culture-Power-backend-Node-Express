@@ -2,12 +2,10 @@ import { ProductService } from '../../services/productService'
 import { type Request, type Response } from 'express'
 import { StatusCodes } from 'http-status-codes'
 import { UserService } from '../../services/userService'
-import { UserRepository } from '../../repositories/user-repository'
 
 export async function RedeemProductId (req: Request, res: Response) {
   const productService = new ProductService()
   const userService = new UserService()
-  const userRepository = new UserRepository()
 
   const { _id } = req.params
   const user = req.body
@@ -40,7 +38,7 @@ export async function RedeemProductId (req: Request, res: Response) {
   product.amount = product.amount <= 0 ? 0 : product.amount -= 1
   await product.save()
 
-  const result = await userRepository.userUpdated(userId, product)
+  const result = await userService.updateQuantityProducts(userId, product)
 
   console.log()
   console.log(result)

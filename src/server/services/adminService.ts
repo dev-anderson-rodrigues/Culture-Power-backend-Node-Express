@@ -20,4 +20,9 @@ export class AdminService {
     const user = await this.adminRepository.getIdUsers(_id)
     return user
   }
+
+  async userUpdate (user: object, jewelsAmount: number) {
+    const userUpdate = await this.adminRepository.userUpdated(user, jewelsAmount)
+    return userUpdate
+  }
 }

@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt'
 import { UserRepository } from '../repositories/user-repository'
 import { AdminRepository } from '../repositories/admin-repository'
+import { type IUser } from '../entities/users'
 
 export class UserService {
   adminRepository: AdminRepository
@@ -34,8 +35,18 @@ export class UserService {
     return user
   }
 
-  async userByIdAndUpdate (_id: string, file: string) {
+  async userByIdAndUpdatePhoto (_id: string, file: string) {
     const user = await this.userRepository.userUpdatedPhoto(_id, file)
+    return user
+  }
+
+  async updateQuantityProducts (userId: IUser, product: any) {
+    const user = await this.userRepository.userUpdated(userId, product)
+    return user
+  }
+
+  async findByNameOrEmail (name: string, email: string) {
+    const user = await this.userRepository.findByNameOrEmail(name, email)
     return user
   }
 }

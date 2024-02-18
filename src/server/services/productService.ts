@@ -1,5 +1,5 @@
 import { ProductRepository } from '../repositories/productRepository'
-import { type IProductDTO, type IProduct } from '../entities/product'
+import { type IProduct } from '../entities/product'
 
 export class ProductService {
   productRepository: ProductRepository

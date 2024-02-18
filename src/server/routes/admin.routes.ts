@@ -6,7 +6,7 @@ import { createProductBodySchema } from '../validators/create-product-body-valid
 import { createProduct, listProductId } from '../controllers/Product'
 import { validationBodyJewels } from '../validators/validationBodyJewels'
 import { isAdmin } from '../middlewares/Permission'
-import { addJewels } from '../controllers/Admin/AddJewels/AddJewels'
+import { addOrRemoveJewels } from '../controllers/Admin/addOrRemoveJewels/addOrRemoveJewels'
 import { reqParamSchema } from '../validators/validationReqParams'
 import { auth } from '../middlewares/auth'
 import { searchLoggedinUser } from '../controllers/Users/searchLogged-inUser'
@@ -24,7 +24,7 @@ router.post('/signin',
 router.patch('/postJewels/:_id', auth, isAdmin,
   validation('params', reqParamSchema),
   validation('body', validationBodyJewels),
-  addJewels
+  addOrRemoveJewels
 )
 router.post('/createProduct', auth, isAdmin,
   validation('body', createProductBodySchema),

@@ -1,5 +1,3 @@
-import { IAdminDTO } from '../entities/admin'
-import { IUser } from '../entities/users'
 import { AdminModel } from '../schemas/admin.schemas'
 import { UserModel } from '../schemas/user.schema'
 
