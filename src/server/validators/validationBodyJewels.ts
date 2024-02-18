@@ -1,5 +1,5 @@
 import * as yup from 'yup'
 
 export const validationBodyJewels = yup.object().shape({
-  jewelsAmount: yup.number().required('jewelsAmount is required!')
+  jewelsAmount: yup.number().positive('Value is not positive').required('jewelsAmount is required!')
 })
