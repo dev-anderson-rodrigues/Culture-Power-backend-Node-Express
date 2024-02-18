@@ -8,7 +8,8 @@ export async function isAdmin (
   req: Request,
   res: Response,
   next: NextFunction) {
-  const { userId } = req.params
+  const { userId } = req.body
+  console.log(userId)
   const getByadmin = await adminService.getById(userId)
   console.log(`Welcome admin!: ${getByadmin?.name}`)
   if (getByadmin === null) {

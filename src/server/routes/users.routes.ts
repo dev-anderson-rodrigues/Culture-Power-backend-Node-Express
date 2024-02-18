@@ -7,7 +7,7 @@ import { signinBodySchema } from '../validators/login-body-validator'
 import { auth } from '../middlewares/auth'
 import { login } from '../controllers/login/login'
 import { upload } from '../middlewares/upload'
-import { updateUserPhoto } from '../controllers/Users/updatePhoto'
+import { uploadUserPhoto } from '../controllers/Users/uploadPhoto'
 import { reqParamSchema } from '../validators/validationReqParams'
 import { searchLoggedinUser } from '../controllers/Users/searchLogged-inUser'
 
@@ -28,7 +28,7 @@ router.post('/signin',
 
 router.patch('/uploadImage/:_id', auth,
   validation('header', reqParamSchema),
-  upload.single('file'), updateUserPhoto
+  upload.single('file'), uploadUserPhoto
 )
 
 export default router

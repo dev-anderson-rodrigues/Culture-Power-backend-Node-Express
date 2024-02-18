@@ -2,7 +2,7 @@ import { type Request, type Response } from 'express'
 import { UserService } from '../../services/userService'
 import { StatusCodes } from 'http-status-codes'
 
-export async function updateUserPhoto (req: Request, res: Response) {
+export async function uploadUserPhoto (req: Request, res: Response) {
   const userService = new UserService()
 
   const { file } = req

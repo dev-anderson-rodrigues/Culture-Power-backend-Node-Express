@@ -8,17 +8,15 @@ export class UserRepository {
     })
   }
 
-  async save<IUser>(
+  async save<IUserDto>(
     name: string,
     email: string,
-    password: string,
-    photo: string
+    password: string
   ) {
-    return (await UserModel.create<IUserDTO>({
+    return (await UserModel.create({
       name,
       email,
-      password,
-      photo
+      password
     }))
   }
 

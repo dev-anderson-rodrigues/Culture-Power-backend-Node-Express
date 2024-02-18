@@ -19,8 +19,7 @@ export async function createUser (req: Request<{}, {}, IUserDTO>, res: Response)
   const result = await userService.userCreate(
     body.name,
     body.email,
-    body.password,
-    body.photo
+    body.password
   )
 
   console.log(result)

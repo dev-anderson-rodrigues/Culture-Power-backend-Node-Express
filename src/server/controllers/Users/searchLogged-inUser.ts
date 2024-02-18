@@ -4,7 +4,7 @@ import { StatusCodes } from 'http-status-codes'
 export async function searchLoggedinUser (req: Request,
   res: Response,
   next: NextFunction) {
-  const { userId } = req.params
+  const { userId } = req.body
   if (userId) {
     res.status(StatusCodes.OK).json(`Logged-in user: ${userId}`)
   } else {

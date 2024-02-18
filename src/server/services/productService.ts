@@ -16,7 +16,7 @@ export class ProductService {
   }
 
   async updateProduct (_id: string,
-    productUpdate: IProductDTO
+    productUpdate: IProduct
   ) {
     return await this.productRepository.findByIdAndUpdate(_id,
       productUpdate
@@ -27,17 +27,19 @@ export class ProductService {
     name: string,
     value: number,
     amount: number,
-    description: string,
-    photo: string
+    description: string
   ) {
     const CreateProduct = await this.productRepository.save(
       name,
       value,
       amount,
-      description,
-      photo
+      description
     )
-
     return CreateProduct
+  }
+
+  async findByIdAndUpdate (_id: string, file: string) {
+    const user = await this.productRepository.productUpdatedPhoto(_id, file)
+    return user
   }
 }

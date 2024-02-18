@@ -7,7 +7,7 @@ import { type jwtPayload } from '../entities/login'
 export function auth (
   req: Request,
   res: Response,
-  next: NextFunction): Response<any, Record<string, any>> | undefined {
+  next: NextFunction) {
   const authHeader = req.headers.authorization
 
   if (!authHeader) {
@@ -25,9 +25,10 @@ export function auth (
   if (tokenSchema !== 'Bearer') {
     return res.status(StatusCodes.UNAUTHORIZED).json({ error: 'Token error!' })
   }
-  const { id } = jwt.verify(token, process.env.AUTH_CONFIG!) as jwtPayload
+  const user = jwt.verify(token, process.env.AUTH_CONFIG!) as jwtPayload
 
-  req.params.userId = id
+  console.log(user.id)
+  req.body.userId = user.id
 
   next()
 }

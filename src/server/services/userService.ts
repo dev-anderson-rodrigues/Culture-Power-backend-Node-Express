@@ -13,14 +13,12 @@ export class UserService {
   async userCreate (
     name: string,
     email: string,
-    password: string,
-    photo: string
+    password: string
   ) {
     const CreateUser = await this.userRepository.save(
       name,
       email,
-      await bcrypt.hash(password, 8),
-      photo
+      await bcrypt.hash(password, 8)
     )
 
     return CreateUser

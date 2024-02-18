@@ -1,4 +1,3 @@
-// import { Document } from 'mongoose';
 import { type Document } from 'mongoose'
 
 export interface IUser extends Document {
@@ -16,5 +15,4 @@ export interface IUserDTO {
   name: string
   email: string
   password: string
-  photo: string
 }

@@ -1,14 +1,13 @@
-import { type IProductDTO } from '../entities/product'
+import { type IProductDTO, type IProduct } from '../entities/product'
 import { ProductModel } from '../schemas/product.schema'
 
 export class ProductRepository {
-  async save<IProduct>(name: string, value: number, amount: number, description: string, photo: string) {
+  async save<IProduct>(name: string, value: number, amount: number, description: string) {
     return await ProductModel.create<IProductDTO>({
       name,
       value,
       amount,
-      description,
-      photo
+      description
     })
   }
 
@@ -20,9 +19,15 @@ export class ProductRepository {
     return await ProductModel.findById(_id)
   }
 
-  async findByIdAndUpdate (_id: string, productUpdate: IProductDTO) {
+  async findByIdAndUpdate (_id: string, productUpdate: IProduct) {
     const Product = await ProductModel.findByIdAndUpdate(_id, { name: productUpdate.name, value: productUpdate.value, amount: productUpdate.amount, description: productUpdate.description, photo: productUpdate.photo }).exec()
 
     return await Product!.save()
   }
+
+  async productUpdatedPhoto (productId: string, file: string) {
+    const product = await ProductModel.findByIdAndUpdate(productId, { photo: file }).exec()
+
+    return product
+  };
 }

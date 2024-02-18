@@ -14,5 +14,4 @@ export interface IProductDTO {
   value: number
   amount: number
   description: string
-  photo: string
 }
