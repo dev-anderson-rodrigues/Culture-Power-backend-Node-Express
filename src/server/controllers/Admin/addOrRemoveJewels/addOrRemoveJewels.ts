@@ -1,7 +1,6 @@
 import { type Request, type Response } from 'express'
 import { AdminService } from '../../../services/adminService'
 import { StatusCodes } from 'http-status-codes'
-import { AdminRepository } from '../../../repositories/admin-repository'
 
 const adminService = new AdminService()
 
