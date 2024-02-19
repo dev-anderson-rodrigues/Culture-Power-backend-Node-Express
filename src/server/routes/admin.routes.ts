@@ -34,8 +34,8 @@ router.put('/updateProduct/:_id', auth, isAdmin,
   validation('params', reqParamSchema),
   UpdatedProduct
 )
-router.patch('/uploadImage/:_id', auth, isAdmin,
-  validation('header', reqParamSchema),
+router.patch('/uploadImageProduct/:_id', auth, isAdmin,
+  validation('params', reqParamSchema),
   upload.single('file'), uploadProductPhoto
 )
 export default router

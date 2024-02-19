@@ -26,7 +26,7 @@ router.post('/signin',
 )
 
 router.patch('/uploadImage/:_id', auth,
-  validation('header', reqParamSchema),
+  validation('params', reqParamSchema),
   upload.single('file'), uploadUserPhoto
 )
 
