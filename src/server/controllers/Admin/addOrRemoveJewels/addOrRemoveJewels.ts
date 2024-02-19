@@ -28,22 +28,3 @@ export async function addOrRemoveJewels (req: Request, res: Response) {
     return res.status(StatusCodes.BAD_REQUEST).json({ Error })
   }
 }
-
-// if (user === null) {
-//   console.log('User does not exist')
-//   return res.status(StatusCodes.UNAUTHORIZED).json('User does not exist')
-// }
-// // user.jewelsAmount = NewQuantityOfGems
-// if (NewQuantityOfGems <= 0) {
-//   return res.status(StatusCodes.UNAUTHORIZED).json()
-//   // jewelsAmount
-// } else {
-//   const result = await adminRepository.userUpdated(user, JewelsAmount)
-//   // if (result === null) {
-//   //   return res.status(StatusCodes.BAD_REQUEST).json()
-//   // }
-//   // if (result?.jewelsAmount <= 0) {
-//   //   result.jewelsAmount === 0
-//   //   return res.status(StatusCodes.UNAUTHORIZED).json('Jewel stock zeroed, you can no longer withdraw gems')
-//   // console.log(`Jewelry successfully sent to the user ${result?.name}`)
-//   return res.status(StatusCodes.CREATED).json(result)
