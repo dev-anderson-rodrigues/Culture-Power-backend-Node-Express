@@ -25,10 +25,15 @@ export function auth (
   if (tokenSchema !== 'Bearer') {
     return res.status(StatusCodes.UNAUTHORIZED).json({ error: 'Token error!' })
   }
-  const user = jwt.verify(token, process.env.AUTH_CONFIG!) as jwtPayload
+  try {
+    const user = jwt.verify(token, process.env.AUTH_CONFIG!) as jwtPayload
 
-  console.log(user.id)
-  req.body.userId = user.id
+    console.log(user.id)
+    req.body.userId = user.id
+  } catch {
+    console.log('Token expired')
+    return res.status(StatusCodes.UNAUTHORIZED).json({ error: 'Token expired' })
+  }
 
   next()
 }
