@@ -5,9 +5,6 @@ O Culture Power é uma aplicação de gamificação de uma empresa “Exemplo”
 
 No Projeto Final do Módulo 2 está sendo desenvolvido o back-end da aplicação.
 
-Estou muito feliz por ser aprovado no meu segundo módulo sendo meu primeiro módulo de Back-end, desenvolvendo assim uma aplicação com:
-
-
 
 Autenticação.
 
